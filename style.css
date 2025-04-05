@@ -11,14 +11,18 @@ body, h1, h2, p, ul, li {
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
-    padding: 20px;
   }
   
   /* Header Styling */
   header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
     background: #333;
     color: #fff;
-    padding: 10px 0;
+    padding: 20px 30px;
+    margin-right: 50px;
     text-align: center;
   }
   
@@ -26,9 +30,7 @@ body, h1, h2, p, ul, li {
     margin-bottom: 10px;
   }
 
-  .about-me {
-    text-align: center;
-  }
+ 
 
   
   
@@ -48,10 +50,33 @@ body, h1, h2, p, ul, li {
   
   /* Section Styling */
   section {
-    margin: 20px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100px;                 
+    margin: 20px;
     padding: 20px;
+    box-sizing: border-box;
     background: #fff;
     border-radius: 5px;
+  }
+  
+
+  #About-Me {
+    margin-top: 100px;
+    margin-left: 800px;
+    text-align: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 500px;
+    background: #fff;
+  }
+
+  #projects {
+    align-items: baseline;
+    text-align: center;
+    padding-bottom: 400px;
   }
   
   /* Project Entries */
