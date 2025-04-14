@@ -167,7 +167,7 @@ section {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  background-color: #222;
+  background-color: #6d6464;
   color: white;
   border: 2px solid #444;
   border-radius: 10px;
@@ -189,6 +189,5 @@ section {
 .project-card:hover {
   transform: scale(1.03);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  border-color: #00ffff;
-  color: #00ffff;
+  color: #2b0bdc;
 }
