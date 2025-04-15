@@ -1,3 +1,23 @@
+@keyframes dropDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-drop {
+  animation: dropDown 1s ease-out;
+}
+
+body:not(.loaded) * {
+  animation: none !important;
+}
+
+
 /* General Reset */
 body, h1, h2, p, ul, li {
   margin: 0;
@@ -7,9 +27,33 @@ body, h1, h2, p, ul, li {
   }
 
 
+
+
 html {
   scroll-behavior: smooth;
 }
+
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 1.2em;
+  z-index: 2000;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  
+}
+
+.back-arrow:hover {
+  color: #e5daba;
+  background: rgba(255, 255, 255, 0.1); /* subtle hover */
+}
+
+
+
   
   
 #navbar {
@@ -37,6 +81,16 @@ html {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start; 
+  gap: 30px;
+}
+.header-container-project-page {
+  width: 90%;
+  margin: 0;
+  padding: 0px 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end; 
   gap: 30px;
 }
 
@@ -131,12 +185,13 @@ section {
   background: #2e2e2e;
 }
 
+
 #projects {
   
   color:antiquewhite;
   align-items: baseline;
   text-align: center;
-  padding-bottom: 800px;
+  padding-bottom: 100px;
 }
 
 /* Project Entries */
@@ -154,7 +209,7 @@ section {
 }
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr)); 
   gap: 20px;
   padding: 20px;
 }
@@ -190,4 +245,15 @@ section {
   transform: scale(1.03);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   color: #2b0bdc;
+}
+
+#Project-Description {
+  margin-top: 100px;
+  margin-right: 800px;
+  text-align: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 500px;
+  background: #2e2e2e;
+
 }
