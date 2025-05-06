@@ -600,7 +600,7 @@ margin-bottom: 10px; /* Space between items */
 /* Project Description */
 #Project-Description, 
 #Project-Images {
-      font-size: large;
+      font-size: larger;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -618,6 +618,7 @@ margin-bottom: 10px; /* Space between items */
 #Project-Description p, 
 #Project-Description a {
       margin-bottom: 15px; /* Add space after paragraphs and links */
+      font-size: larger;
 }
 
 /* Make the GitHub link the last element with auto margin to push it down */
@@ -1108,6 +1109,7 @@ color: #64ffda; /* Brighter teal on hover */
 /* Fix for left/right boxes in the tools/solution section */
 .left-box,
 .right-box {
+      font-size: larger;
       width: 100%;
       max-width: 100%;
       box-sizing: border-box;
