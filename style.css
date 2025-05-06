@@ -588,7 +588,7 @@ margin-bottom: 10px; /* Space between items */
 .description-images-wrapper {
 display: flex;
 justify-content: space-between;
-align-items: stretch;
+align-items: stretch; /* Make both sections stretch to the same height */
 max-width: 1200px;
 margin: 10px;
 margin-top: 80px;
@@ -603,18 +603,27 @@ margin-top: 0px;
 margin-bottom: 10px;
 margin-left: 10px;
 margin-right: 10px;
-padding: 10px;
-padding-right: 10px;
-padding-bottom: 20px;
+padding: 20px; /* Consistent padding */
 text-align: center;
 color: #E5E5E5;
 background: #1B263B;
 flex: 1;
 display: flex;
 flex-direction: column;
-justify-content: space-between;
-gap: 10px;
-height: 100%;
+justify-content: flex-start; /* Start content at the top */
+height: auto; /* Let height be determined by the container */
+}
+
+/* Add this to make the description fill the available space */
+#Project-Description p, #Project-Description a {
+  margin-bottom: 15px; /* Add space after paragraphs and links */
+}
+
+/* Make the GitHub link the last element with auto margin to push it down */
+#Project-Description a#github-link {
+  margin-top: auto; /* Push the link to the bottom */
+  margin-bottom: 20px; /* Space at the bottom */
+  display: inline-block; /* Make it a block to respect margins */
 }
 
 /* Project Images Section */
@@ -627,7 +636,12 @@ background: #1B263B;
 border-radius: 0;
 display: flex;
 flex-direction: column;
-justify-content: space-between;
+justify-content: flex-start; /* Align content at the top */
+}
+
+/* Ensure both sections have the same background height */
+.description-images-wrapper > section {
+  background: #1B263B;
 }
 
 /* Project Images Grid */
