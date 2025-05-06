@@ -1179,3 +1179,59 @@ color: #64ffda; /* Brighter teal on hover */
         margin: 0 0 20px 0;
       }
 }
+
+/* Increase text size for project description, problem, and solution sections */
+#Project-Description p, 
+#Project-Problem p,
+.left-box p, 
+.right-box p {
+    font-size: 1.2em;  /* Increase from default size */
+    line-height: 1.6;  /* Maintain good readability with increased line height */
+}
+
+/* Make headings larger as well for better hierarchy */
+#Project-Description h2,
+#Project-Description h3,
+#Project-Problem h2,
+#Project-Problem h3,
+.left-box h2,
+.left-box h3,
+.right-box h2,
+.right-box h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+/* Increase list text size in the solution/tools boxes */
+.custom-list li {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Make sure the GitHub link is also larger */
+#github-link {
+    font-size: 1.2em;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    #Project-Description p, 
+    #Project-Problem p,
+    .left-box p, 
+    .right-box p,
+    .custom-list li,
+    #github-link {
+        font-size: 1.1em;  /* Slightly smaller on mobile but still larger than default */
+    }
+    
+    #Project-Description h2,
+    #Project-Description h3,
+    #Project-Problem h2,
+    #Project-Problem h3,
+    .left-box h2,
+    .left-box h3,
+    .right-box h2,
+    .right-box h3 {
+        font-size: 1.5em;
+    }
+}
