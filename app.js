@@ -43,42 +43,68 @@ function showNextSlide() {
 setInterval(showNextSlide, 4500);
 }
 
-window.addEventListener("load", function () {
-const navbar = document.getElementById("navbar");
-applyRandomAnimation(navbar);
+// Function to align the bottoms of Project Description and Project Images
+function alignProjectSections() {
+  const descriptionSection = document.getElementById('Project-Description');
+  const imagesSection = document.getElementById('Project-Images');
+  
+  // Only proceed if both sections exist on the page
+  if (descriptionSection && imagesSection) {
+    // Reset any previously added padding
+    descriptionSection.style.paddingBottom = '20px';
+    
+    // Get the heights after resetting
+    const descHeight = descriptionSection.offsetHeight;
+    const imagesHeight = imagesSection.offsetHeight;
+    
+    // If images section is taller, add padding to description
+    if (imagesHeight > descHeight) {
+      const paddingNeeded = imagesHeight - descHeight + 20; // Add 20px buffer
+      descriptionSection.style.paddingBottom = `${paddingNeeded}px`;
+    }
+    // If description is taller, no action needed as we want content to align at the top
+  }
+}
 
-// Animate visible sections only
-document.querySelectorAll("section").forEach(section => {
+window.addEventListener("load", function () {
+  const navbar = document.getElementById("navbar");
+  applyRandomAnimation(navbar);
+
+  // Animate visible sections only
+  document.querySelectorAll("section").forEach(section => {
     const rect = section.getBoundingClientRect();
     if (rect.top < window.innerHeight) {
-    applyRandomAnimation(section);
+      applyRandomAnimation(section);
     }
-});
+  });
 
-const sideTitle = document.querySelector(".side-title");
-const navLinks = document.querySelectorAll(".nav-links a");
+  const sideTitle = document.querySelector(".side-title");
+  const navLinks = document.querySelectorAll(".nav-links a");
 
-applyRandomAnimation(sideTitle);
-navLinks.forEach(link => applyRandomAnimation(link));
+  applyRandomAnimation(sideTitle);
+  navLinks.forEach(link => applyRandomAnimation(link));
 
-// Initialize the image slideshow
-setupImageSlideshow();
+  // Initialize the image slideshow
+  setupImageSlideshow();
 
-document.body.classList.add("loaded");
+  document.body.classList.add("loaded");
 
-// Scroll into view only if element is not in view already
-const hash = window.location.hash;
-if (hash) {
+  // Scroll into view only if element is not in view already
+  const hash = window.location.hash;
+  if (hash) {
     const target = document.querySelector(hash);
     if (target) {
-    const rect = target.getBoundingClientRect();
-    if (rect.top < 0 || rect.bottom > window.innerHeight) {
+      const rect = target.getBoundingClientRect();
+      if (rect.top < 0 || rect.bottom > window.innerHeight) {
         setTimeout(() => {
-        target.scrollIntoView({ behavior: "smooth" });
+          target.scrollIntoView({ behavior: "smooth" });
         }, 300);
+      }
     }
-    }
-}
+  }
+  
+  // Align project description and images sections
+  alignProjectSections();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -156,3 +182,6 @@ const checkMobileView = () => {
 checkMobileView();
 window.addEventListener('resize', checkMobileView);
 });
+
+// Run alignProjectSections when window is resized
+window.addEventListener('resize', alignProjectSections);
