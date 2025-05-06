@@ -1,0 +1,994 @@
+/* Keep your existing dropDown animation */
+@keyframes dropDown {
+0% {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+/* Add new animations for different directions */
+@keyframes slideRight {
+0% {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+100% {
+    opacity: 1;
+    transform: translateX(0);
+}
+}
+
+@keyframes slideLeft {
+0% {
+    opacity: 0;
+    transform: translateX(20px);
+}
+100% {
+    opacity: 1;
+    transform: translateX(0);
+}
+}
+
+@keyframes riseUp {
+0% {
+    opacity: 0;
+    transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+/* Update the animate-drop class to be a base class */
+.animate-drop {
+animation-duration: 1s;
+animation-timing-function: ease-out;
+animation-fill-mode: forwards;
+}
+
+/* Add specific animation direction classes */
+.animate-down {
+animation-name: dropDown;
+}
+
+.animate-right {
+animation-name: slideRight;
+}
+
+.animate-left {
+animation-name: slideLeft;
+}
+
+.animate-up {
+animation-name: riseUp;
+}
+
+body:not(.loaded) * {
+animation: none !important;
+}
+
+body.loaded #projects.animate-drop {
+animation: dropDown 1s ease-out forwards !important;
+}
+
+.hidden {
+opacity: 0;
+transform: translateY(-20px);
+}
+
+#projects:not(.hidden) {
+opacity: 1 !important;
+transform: translateY(0) !important;
+}
+
+/* General Reset */
+body, h1, h2, p, ul, li {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+color:antiquewhite;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+.back-arrow {
+position: absolute;
+top: 20px;
+left: 20px;
+text-decoration: none;
+color: #E5E5E5;
+font-size: 1.2em;
+z-index: 2000;
+cursor: pointer;
+padding: 5px 10px;
+border-radius: 5px;
+transition: color 0.3s ease, background 0.3s ease;
+}
+
+.back-arrow:hover {
+color: #1B263B;
+background: rgba(229, 229, 229, 0.2);
+}
+
+#navbar {
+position: fixed;
+top: 0;
+width: 100%;
+padding: 20px;
+background-color: rgba(27, 38, 59, 0.9);
+color: #E5E5E5;
+z-index: 1000;
+transition: background-color 0.3s ease, box-shadow 0.3s ease, color 1s ease;
+}
+
+#navbar .nav-links a {
+color: #E5E5E5;
+transition: color 1s ease;
+}
+
+.header-container {
+max-width: 1000px;
+margin: 0 auto;
+padding: 0px;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: flex-start; 
+gap: 30px;
+}
+
+.header-container-project-page {
+max-width: 1000px;
+margin: 0 auto;
+padding: 0px;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: flex-end; /* Changed to move .side-title and .nav-links to the right */
+gap: 30px;
+position: relative; /* Added to ensure .back-arrow positioning is relative to this container */
+}
+
+.side-title {
+font-size: 1.8em;
+color: #E5E5E5;
+margin: 0;
+}
+
+.nav-links {
+color: #E5E5E5;
+list-style: none;
+display: flex;
+gap: 20px;
+padding: 0;
+margin: 0;
+}
+
+.nav-links li a {
+color: #E5E5E5;
+text-decoration: none;
+font-size: 1em;
+}
+
+#navbar.scrolled {
+color: #1B263B;
+background-color: rgba(229, 229, 229, 0.9);
+box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+#navbar.scrolled .back-arrow {
+color: #1B263B;
+background: rgba(38, 166, 154, 0.1);
+}
+#navbar.scrolled .back-arrow:hover{
+color:#26A69A;
+}
+
+#navbar.scrolled .nav-links a {
+color: #1B263B;
+}
+
+#navbar.scrolled .side-title {
+color: #1B263B;
+}
+
+/* Body Styling */
+body {
+font-family: Arial, sans-serif;
+line-height: 1.6;
+background-color: #f4f4f4;
+color: #333;
+}
+
+/* Header Styling */
+header {
+background: #E5E5E5;
+}
+
+header h1 {
+margin-bottom: 10px;
+}
+
+nav ul {
+list-style: none;
+}
+
+nav ul li {
+display: inline;
+margin: 0 15px;
+}
+
+nav ul li a {
+color: #E5E5E5;
+text-decoration: none;
+}
+
+/* Section Styling */
+section {
+background-color: #1B263B;
+color: #E5E5E5;
+margin: 0px;
+padding: 20px;
+box-sizing: border-box;
+border-radius: 0px;
+}
+
+#About-Me p2 {
+display: block;
+padding: 10px 20px;
+box-sizing: border-box;
+}
+
+/* Container for About Me and Profile Gallery sections */
+.about-section-container {
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+margin-top: 100px;
+margin-bottom: 30px;
+padding: 0 50px;
+width: 100%;
+box-sizing: border-box;
+gap: 40px;
+}
+
+/* Update About Me section to work in the container */
+#About-Me {
+margin-top: 0;
+margin-left: 0;
+margin-right: 0;
+width: 35%;
+max-width: 35%;
+float: none;
+clear: none;
+padding: 30px;
+border-radius: 15px;
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Center the About Me header */
+#About-Me h2 {
+font-size: 1.8em;
+margin-bottom: 20px;
+text-align: center; /* Center the header text */
+}
+
+/* Profile Gallery Section - now on the left */
+#profile-gallery {
+width: 50%;
+max-width: 50%;
+background: #1B263B;
+padding: 20px;
+box-sizing: border-box;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 0;
+border-radius: 15px;
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Slideshow Container */
+.image-slideshow {
+width: 100%;
+height: 350px; /* Increased height to give more room for images */
+position: relative;
+overflow: hidden;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+background-color: #1B263B; /* Ensure consistent background */
+}
+
+/* Individual Slide Images */
+.slide-image {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: contain; /* Changed from 'cover' to 'contain' */
+background-color: #1B263B; /* Match the background color */
+opacity: 0;
+transition: opacity 1s ease-in-out;
+}
+
+/* Active slide */
+.slide-image.active {
+opacity: 1;
+}
+
+/* Responsive adjustments for the about section container */
+@media (max-width: 992px) {
+.about-section-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+}
+
+#About-Me, #profile-gallery {
+    width: 90%;
+    max-width: 90%;
+    margin: 0 auto 20px;
+}
+
+#profile-gallery {
+    margin-top: 80px;
+}
+
+#About-Me {
+    margin-left: auto;
+}
+}
+
+@media (max-width: 576px) {
+.about-section-container {
+    padding: 0 10px;
+}
+
+.image-slideshow {
+    height: 250px;
+}
+}
+
+/* Responsive adjustments for About Me */
+@media (max-width: 1200px) {
+#About-Me {
+    width: 55%;
+    margin-right: 30px;
+}
+}
+
+@media (max-width: 992px) {
+#About-Me {
+    width: 45%;
+    max-width: 45%;
+    margin-right: 30px;
+}
+}
+
+@media (max-width: 768px) {
+#About-Me {
+    float: none;
+    width: 90%;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+}
+
+@media (max-width: 576px) {
+#About-Me {
+    width: 90%;
+    margin-top: 80px;
+    padding-bottom: 60px;
+}
+}
+
+#projects {
+color: #E5E5E5;
+align-items: baseline;
+text-align: center;
+padding-bottom: 100px;
+margin-bottom: 25px;
+}
+
+/* Project Entries */
+.project {
+padding: 20px;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: flex-start; 
+margin-bottom: 15px;
+}
+
+.project h3 {
+margin-bottom: 5px;
+}
+
+.project-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+gap: 20px;
+padding: 20px;
+}
+
+/* Style for Project Cards */
+.project-card {
+min-height: 350px;
+display: flex;
+flex-direction: column;
+justify-content: center; /* Center text vertically */
+align-items: center; /* Center text horizontally */
+text-align: center;
+background-color: rgba(38, 166, 154, 0.8); /* Semi-transparent #26A69A overlay */
+border: 2px solid #1B263B;
+border-radius: 10px;
+padding: 20px;
+text-decoration: none;
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+position: relative; /* For pseudo-element */
+z-index: 1;
+overflow: hidden; /* Prevent image overflow */
+}
+
+/* Pseudo-element for background image */
+.project-card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-size: contain; /* Fit image without cropping */
+background-repeat: no-repeat; /* Prevent tiling */
+background-position: center; /* Center image */
+opacity: 0.5; /* Slightly transparent */
+z-index: -1; /* Behind text */
+border-radius: 10px; /* Match card */
+}
+
+/* Specific background images */
+.project-card-ims::before {
+background-image: url('Images/imspic1.png'); /* Matches ims.html */
+}
+.project-card-micropaint::before {
+background-image: url('Images/p5js.png'); /* Placeholder */
+}
+.project-card-roulette::before {
+background-image: url('Images/roulette.png'); /* Placeholder */
+}
+.project-card-oceanactivism::before {
+background-image: url('Images/paper.png'); /* Placeholder */
+}
+
+/* Ensure text is readable */
+.project-card h3 {
+margin-bottom: 10px;
+font-size: 1.5em;
+color: #E5E5E5; /* Fully opaque */
+z-index: 1; /* Above image */
+}
+.project-card p {
+font-size: 1em;
+color: #E5E5E5; /* Fully opaque */
+z-index: 1; /* Above image */
+}
+
+/* Hover Effect for Projects */
+.project-card:hover {
+transform: scale(1.6);
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+color: #1B263B;
+z-index: 2;
+}
+
+/* Hover effect for text */
+.project-card:hover h3,
+.project-card:hover p {
+color: #1B263B;
+}
+
+#Project-Problem {
+color: #E5E5E5;
+padding: 10px 10px;
+margin: 10px 10px;
+}
+
+#github-link {
+color: #2563eb; /* Tailwind's blue-600 */
+text-decoration: none;
+font-weight: 500;
+transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+#github-link:hover,
+#github-link:focus {
+color: #1d4ed8; /* Tailwind's blue-700 */
+text-decoration: underline;
+}
+
+#github-link:active {
+color: #1e40af; /* Tailwind's blue-800 */
+}
+
+.ims-info {
+line-height: 2;
+color: #E5E5E5;
+}
+
+/* Side-by-side layout */
+.side-by-side-section {
+display: flex;
+justify-content: space-around;
+align-items: flex-start;
+gap: 40px;
+padding: 40px;
+max-width: 1200px;
+margin: 10px 10px;
+}
+
+.left-box,
+.right-box {
+line-height: 2;
+flex: 1;
+background-color: #26A69A;
+color: #E5E5E5;
+padding: 30px;
+border-radius: 10px;  
+min-height: 400px;
+}
+
+.custom-list {
+list-style-type: square; /* circle, square, none, or custom marker */
+padding-left: 20px;    /* Indent from the left */
+color: antiquewhite;
+font-size: 1.2em;
+line-height: 2;
+}
+
+.custom-list li {
+margin-bottom: 10px; /* Space between items */
+}
+
+
+/* Wrapper for Description and Images */
+.description-images-wrapper {
+display: flex;
+justify-content: space-between;
+align-items: stretch;
+max-width: 1200px;
+margin: 10px;
+margin-top: 80px;
+padding: 10px;
+gap: 10px;
+}
+
+/* Project Description */
+#Project-Description {
+font-size: larger;
+margin-top: 0px;
+margin-bottom: 10px;
+margin-left: 10px;
+margin-right: 10px; /* Reduced from 800px to widen section */
+padding: 10px;
+padding-right: 10px;
+padding-bottom: 0;
+text-align: center;
+color: #E5E5E5;
+background: #1B263B;
+flex: 1;
+display: flex;
+flex-direction: column;
+justify-content: flex-start; /* Align content to top, stretch to bottom */
+gap: 10px; /* Space between h2 and p */
+}
+
+/* Project Images Section */
+#Project-Images {
+flex: 0 0 650px;
+margin-bottom: 10px;
+padding: 20px;
+margin-left: 10px;
+background: #1B263B;
+border-radius: 0;
+}
+
+/* Project Images Grid */
+.project-images {
+display: grid;
+justify-content: space-between;
+grid-template-columns: repeat(2, 1fr);
+gap: 15px;
+padding: 10px;
+padding-left: 0px;
+}
+
+/* Individual Images */
+.project-image {
+width: 100%;
+aspect-ratio: 1 / 1;
+height: auto;
+border-radius: 10px;
+border: 2px solid #26A69A;
+object-fit: contain;
+background-color: #1B263B;
+image-rendering: -webkit-optimize-contrast;
+image-rendering: crisp-edges;
+}
+
+/* Responsive Adjustment */
+@media (max-width: 768px) {
+.description-images-wrapper {
+    flex-direction: column;
+    align-items: center;
+}
+#Project-Description {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+#Project-Images {
+    flex: 1;
+    max-width: 100%;
+}
+.project-images {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+}
+
+/* Base responsive layout */
+body {
+overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Responsive About Me section */
+#About-Me {
+margin: 100px auto 30px;
+width: 90%;
+max-width: 800px;
+padding: 30px 20px;
+}
+
+/* Responsive navigation */
+@media (max-width: 768px) {
+.header-container, .header-container-project-page {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.nav-links {
+    gap: 15px;
+}
+
+.back-arrow {
+    top: 10px;
+    left: 10px;
+    font-size: 1em;
+}
+.resume-button {
+    padding: 8px 15px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.resume-button:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+.scrolled .resume-button {
+    border-color: #333;
+    color: #333;
+}
+
+.scrolled .resume-button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+#navbar {
+    padding: 15px 10px;
+}
+}
+
+/* Responsive project cards */
+@media (max-width: 768px) {
+.project-grid {
+    grid-template-columns: 1fr;
+    padding: 15px;
+}
+
+.project-card {
+    min-height: 250px;
+}
+
+/* Adjust hover effect for mobile */
+.project-card:hover {
+    transform: scale(1.05);
+}
+}
+
+/* Responsive side-by-side sections */
+@media (max-width: 768px) {
+.side-by-side-section {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+}
+
+.left-box, .right-box {
+    min-height: auto;
+    padding: 20px;
+}
+}
+
+/* Improved responsive layout for description-images-wrapper */
+@media (max-width: 992px) {
+.description-images-wrapper {
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+#Project-Description, #Project-Images {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 20px 0;
+}
+
+.project-images {
+    grid-template-columns: 1fr 1fr;
+}
+}
+
+@media (max-width: 576px) {
+.project-images {
+    grid-template-columns: 1fr;
+}
+
+.project-image {
+    max-width: 100%;
+}
+
+#Project-Problem {
+    padding: 15px;
+    margin: 10px;
+}
+}
+
+/* Adjust font sizes for smaller screens */
+@media (max-width: 576px) {
+h1, h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+p, .ims-info, #About-Me p2 {
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+.custom-list {
+    font-size: 0.9em;
+}
+}
+
+/* Add a mobile menu toggle for very small screens */
+@media (max-width: 480px) {
+.nav-links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+}
+
+.single-project-image {
+width: 100%;
+display: flex;
+justify-content: center;
+margin: 20px 0;
+}
+
+.full-width-image {
+max-width: 100%;
+height: auto;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Section Styles */
+#contact {
+padding: 60px 20px;
+background-color: #0a192f; /* Dark navy background like other sections */
+color: #e6f1ff; /* Light text color for dark background */
+}
+
+#contact h2 {
+text-align: center;
+margin-bottom: 40px;
+color: #64ffda; /* Light teal color for headings */
+}
+
+.contact-container {
+display: flex;
+flex-wrap: wrap;
+max-width: 1200px;
+margin: 0 auto;
+gap: 40px;
+position: relative;
+}
+
+/* Remove the vertical separator */
+/* .contact-container::after has been removed */
+
+/* Make contact info section smaller */
+.contact-info {
+flex: 0 0 30%;
+min-width: 250px;
+padding: 20px;
+box-sizing: border-box;
+background-color: #1B263B; /* Light teal inner box */
+border-radius: 8px;
+border: 1px solid #64ffda; /* Teal border */
+}
+
+/* Make contact form section larger */
+.contact-form {
+flex: 0 0 60%;
+min-width: 300px;
+padding: 20px;
+box-sizing: border-box;
+background-color: #1B263B; /* Light teal inner box */
+border-radius: 8px;
+border: 1px solid #64ffda; /* Teal border */
+}
+
+.contact-form form {
+width: 100%;
+}
+
+/* Make headings match the site style */
+.contact-info h3, .contact-form h3 {
+margin-bottom: 20px;
+font-size: 1.3rem;
+padding-bottom: 8px;
+border-bottom: 2px solid #64ffda; /* Teal border */
+display: inline-block;
+color: #64ffda; /* Teal text */
+}
+
+/* Make contact items more compact */
+.contact-item {
+display: flex;
+align-items: center;
+margin-bottom: 15px;
+}
+
+/* Icon styles */
+.contact-icon {
+width: 20px;
+height: 20px;
+margin-right: 10px;
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+filter: invert(92%) sepia(16%) saturate(1096%) hue-rotate(101deg) brightness(97%) contrast(103%); /* Make icons teal */
+}
+
+.email-icon {
+background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>');
+}
+
+.phone-icon {
+background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>');
+}
+
+.location-icon {
+background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>');
+}
+
+.social-icon {
+width: 32px;
+height: 32px;
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+transition: transform 0.3s ease;
+filter: invert(92%) sepia(16%) saturate(1096%) hue-rotate(101deg) brightness(97%) contrast(103%); /* Make icons teal */
+}
+
+.social-icon:hover {
+transform: translateY(-3px);
+filter: brightness(1.2) invert(92%) sepia(16%) saturate(1096%) hue-rotate(101deg) brightness(97%) contrast(103%); /* Brighter teal on hover */
+}
+
+.github-icon {
+background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"%3E%3C/path%3E%3C/svg%3E');
+}
+
+.linkedin-icon {
+background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>');
+}
+
+/* Form Styles */
+.form-group {
+margin-bottom: 20px;
+width: 100%;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 6px;
+font-weight: 500;
+font-size: 0.95rem;
+color: #64ffda; /* Teal label text */
+}
+
+.form-group input,
+.form-group textarea {
+width: 100%;
+padding: 10px;
+border: 1px solid #64ffda; /* Teal border */
+border-radius: 4px;
+font-size: 16px;
+transition: border-color 0.3s, background-color 0.3s;
+box-sizing: border-box;
+background-color: #112240; /* Dark navy with transparency */
+color: #e6f1ff; /* Light text */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+border-color: #64ffda; /* Brighter teal on focus */
+outline: none;
+background-color: rgba(17, 34, 64, 0.8); /* Slightly lighter background on focus */
+}
+
+.submit-btn {
+background-color: transparent;
+color: #64ffda; /* Teal text */
+border: 1px solid #64ffda; /* Teal border */
+padding: 10px 20px;
+font-size: 16px;
+border-radius: 4px;
+cursor: pointer;
+transition: background-color 0.3s, color 0.3s;
+}
+
+.submit-btn:hover {
+background-color: rgba(100, 255, 218, 0.1); /* Slight teal background on hover */
+color: #64ffda; /* Brighter teal on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+.contact-container {
+    flex-direction: column;
+}
+
+.contact-info, .contact-form {
+    width: 100%;
+}
+
+.contact-info {
+    position: relative;
+    margin-bottom: 30px;
+    padding: 15px;
+}
+}
