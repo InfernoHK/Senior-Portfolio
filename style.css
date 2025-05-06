@@ -600,6 +600,7 @@ margin-bottom: 10px; /* Space between items */
 /* Project Description */
 #Project-Description, 
 #Project-Images {
+      font-size: large;
       flex: 1;
       display: flex;
       flex-direction: column;
