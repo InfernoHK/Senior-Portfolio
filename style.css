@@ -1,3 +1,27 @@
+/* Add these rules at the top of your style.css file */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Make sure all sections respect container width */
+section, .about-section-container, .project-grid, .contact-container, 
+.description-images-wrapper, .side-by-side-section {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 /* Keep your existing dropDown animation */
 @keyframes dropDown {
 0% {
