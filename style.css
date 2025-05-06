@@ -1109,7 +1109,7 @@ color: #64ffda; /* Brighter teal on hover */
 /* Fix for left/right boxes in the tools/solution section */
 .left-box,
 .right-box {
-      font-size: larger;
+      font-size: large;
       width: 100%;
       max-width: 100%;
       box-sizing: border-box;
